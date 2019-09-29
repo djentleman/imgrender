@@ -47,7 +47,10 @@ class Renderer():
 
 
 def get_image(path):
-    return np.asarray(Image.open(path))
+    img = np.asarray(Image.open(path))
+    if img.shape[2] > 3:
+        return np.array([[pixel[:3] for pixel in row] for row in img])
+    return img
 
 def main():
     renderer = Renderer()
