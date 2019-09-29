@@ -7,14 +7,20 @@ class Renderer():
 
     def __init__(self):
         self.cols = [
-            ('black', np.array([[0, 0, 0]])),
-            ('red',  np.array([[255, 0, 0]])),
-            ('green',  np.array([[0, 255, 0]])),
-            ('yellow',  np.array([[255, 255, 0]])),
-            ('blue',  np.array([[0, 0, 255]])),
-            ('magenta',  np.array([[255, 0, 255]])),
-            ('cyan',  np.array([[0, 255, 255]])),
-            ('white',  np.array([[255, 255, 255]])),
+            ('black', np.array([[0, 0, 0]]), []),
+            ('red',  np.array([[255, 50, 50]]), []),
+            ('green',  np.array([[50, 255, 50]]), []),
+            ('yellow',  np.array([[255, 255, 50]]), []),
+            ('blue',  np.array([[50, 50, 255]]), []),
+            ('magenta',  np.array([[255, 50, 255]]), []),
+            ('cyan',  np.array([[50, 255, 255]]), []),
+            ('red',  np.array([[255, 150, 150]]), ['blink']),
+            ('green',  np.array([[150, 255, 150]]), ['blink']),
+            ('yellow',  np.array([[255, 255, 150]]), ['blink']),
+            ('blue',  np.array([[150, 150, 255]]), ['blink']),
+            ('magenta',  np.array([[255, 150, 255]]), ['blink']),
+            ('cyan',  np.array([[150, 255, 255]]), ['blink']),
+            ('white',  np.array([[255, 255, 255]]), []),
         ]
 
     def get_pixel(self, color):
@@ -23,7 +29,7 @@ class Renderer():
         col = sorted(self.cols, key=lambda x: np.linalg.norm( x[1] - color.reshape(1, -1) ))[0]
         if col[0] == 'black':
             return '  '
-        return colored('  ', col[0], f'on_{col[0]}')
+        return colored('  ', col[0], f'on_{col[0]}', attrs=col[2])
 
     def render_image(self, pixels, scale):
         # first of all scale the image to the scale 'tuple'
