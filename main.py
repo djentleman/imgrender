@@ -1,35 +1,12 @@
-from termcolor import colored
+from colors import color
 from PIL import Image
 import numpy as np
 import sys
 
 class Renderer():
 
-    def __init__(self):
-        self.cols = [
-            ('black', np.array([[0, 0, 0]]), []),
-            ('red',  np.array([[255, 50, 50]]), []),
-            ('green',  np.array([[50, 255, 50]]), []),
-            ('yellow',  np.array([[255, 255, 50]]), []),
-            ('blue',  np.array([[50, 50, 255]]), []),
-            ('magenta',  np.array([[255, 50, 255]]), []),
-            ('cyan',  np.array([[50, 255, 255]]), []),
-            ('red',  np.array([[255, 150, 150]]), ['blink']),
-            ('green',  np.array([[150, 255, 150]]), ['blink']),
-            ('yellow',  np.array([[255, 255, 150]]), ['blink']),
-            ('blue',  np.array([[150, 150, 255]]), ['blink']),
-            ('magenta',  np.array([[255, 150, 255]]), ['blink']),
-            ('cyan',  np.array([[150, 255, 255]]), ['blink']),
-            ('white',  np.array([[255, 255, 255]]), []),
-        ]
-
-    def get_pixel(self, color):
-        # compute cosine similatiry against colour for all available cols
-        # generate coloured pixel using best available colour
-        col = sorted(self.cols, key=lambda x: np.linalg.norm( x[1] - color.reshape(1, -1) ))[0]
-        if col[0] == 'black':
-            return '  '
-        return colored('  ', col[0], f'on_{col[0]}', attrs=col[2])
+    def get_pixel(self, col):
+        return color('  ', bg=f'rgb({int(col[0])}, {int(col[1])}, {int(col[2])})')
 
     def render_image(self, pixels, scale):
         # first of all scale the image to the scale 'tuple'
