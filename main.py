@@ -35,12 +35,15 @@ def get_image(path):
         return np.array([[pixel[:3] for pixel in row] for row in img])
     return img
 
-def main():
+def render(path, scale=(60, 60)):
     renderer = Renderer()
-    path = sys.argv[1]
     image = get_image(path)
-    output = renderer.render_image(image, (60, 60))
+    output = renderer.render_image(image, scale)
     print('\n'.join([''.join(row) for row in output]))
+
+def main():
+    path = sys.argv[1]
+    render(path)
 
 if __name__ == '__main__':
     main()
