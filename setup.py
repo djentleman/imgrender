@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="imgrender-djentleman",
-    version="0.0.1",
+    name="imgrender",
+    version="0.0.2",
     author="Todd Perry",
     author_email="todd.perry@myport.ac.uk",
     description="Python terminal image renderer",
