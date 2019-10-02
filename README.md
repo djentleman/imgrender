@@ -43,12 +43,12 @@ The render function can be called without passing in a scale argument, this will
 
 below is an image of the city of Portsmouth generated as a 60x60 visualization.
 
-![Rendered](assets/pompey60.jpg)
+![Rendered](https://raw.githubusercontent.com/djentleman/imgrender/master/assets/pompey60.jpg)
 
 And here is the original image
 
-![Original](assets/pompey.jpg)
+![Original](https://raw.githubusercontent.com/djentleman/imgrender/master/assets/pompey.jpg)
 
 Finally, here is the same imaged visualised as 250x250 pixels
 
-![Rendered](assets/pompey250.jpg)
+![Rendered](https://raw.githubusercontent.com/djentleman/imgrender/master/assets/pompey250.jpg)
