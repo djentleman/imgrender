@@ -1,7 +1,7 @@
 from colors import color
 from PIL import Image
 import numpy as np
-import sys
+import argparse
 
 class Renderer():
 
@@ -25,9 +25,6 @@ class Renderer():
             y += block_size[0]
         output = [[self.get_pixel(block) for block in row] for row in blocks]
         return output
-        
-        
-
 
 def get_image(path):
     img = np.asarray(Image.open(path))
@@ -42,8 +39,15 @@ def render(path, scale=(60, 60)):
     print('\n'.join([''.join(row) for row in output]))
 
 def main():
-    path = sys.argv[1]
-    render(path)
+    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser.add_argument('path', metavar='path', type=str,
+                        help='the image path')
+    parser.add_argument('--width', dest='width', default=60, type=int,
+                        help='width of the rendered image (default 60 pixels)')
+    parser.add_argument('--height', dest='height', default=60, type=int,
+                        help='height of the rendered image (default 60 pixels)')
+    args = parser.parse_args()
+    render(args.path, (args.height, args.width))
 
 if __name__ == '__main__':
     main()
