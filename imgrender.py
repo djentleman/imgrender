@@ -39,7 +39,7 @@ def render(path, scale=(60, 60)):
     print('\n'.join([''.join(row) for row in output]))
 
 def main():
-    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser = argparse.ArgumentParser(description='Render images on the command line')
     parser.add_argument('path', metavar='path', type=str,
                         help='the image path')
     parser.add_argument('--width', dest='width', default=60, type=int,
