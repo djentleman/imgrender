@@ -3,6 +3,10 @@
 Terminal image viewer in python, inspired by https://github.com/stefanhaustein/TerminalImageViewer. A piece of software designed to render
 images on the linux/bash command line. It can either be used as a CLI or as a python library. It should work on most modern terminals, including mobaxterm for windows and jupyter notebooks.
 
+## Installation
+
+to Install imgrender, run `pip install imgrender`
+
 
 ## Usage
 
