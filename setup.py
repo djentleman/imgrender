@@ -13,6 +13,11 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/djentleman/imgrender",
     packages=setuptools.find_packages(),
+    install_requires=[
+        'ansicolors==1.1.8',
+        'numpy==1.17.2',
+        'Pillow==6.1.0',
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
