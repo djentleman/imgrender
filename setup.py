@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="imgrender",
-    version="0.0.2",
+    version="0.0.3",
     author="Todd Perry",
     author_email="todd.perry@myport.ac.uk",
     description="Python terminal image renderer",
