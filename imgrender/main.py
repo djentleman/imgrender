@@ -28,8 +28,11 @@ class Renderer():
 
 def get_image(path):
     img = np.asarray(Image.open(path))
-    if img.shape[2] > 3:
-        return np.array([[pixel[:3] for pixel in row] for row in img])
+    if len(img.shape) == 3:
+        if img.shape[2] > 3:
+            return np.array([[pixel[:3] for pixel in row] for row in img])
+    elif len(img.shape) == 2:
+        return np.array([[[pixel]*3 for pixel in row] for row in img])
     return img
 
 def render(path, scale=(60, 60)):
