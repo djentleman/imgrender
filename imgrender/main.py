@@ -31,13 +31,23 @@ def get_image(path):
     if len(img.shape) == 3:
         if img.shape[2] > 3:
             return np.array([[pixel[:3] for pixel in row] for row in img])
+        if img.shape[2] == 2:
+            return np.array([[[pixel[0]]*3 for pixel in row] for row in img])
     elif len(img.shape) == 2:
         return np.array([[[pixel]*3 for pixel in row] for row in img])
+    return img
+
+def preprocess_image(img):
+    # check if 0-255 or 0-1
+    maxval = np.amax(img)
+    if maxval == 1:
+        return np.array([[[0 if val == 0 else 255 for val in pixel] for pixel in row] for row in img])
     return img
 
 def render(path, scale=(60, 60)):
     renderer = Renderer()
     image = get_image(path)
+    image = preprocess_image(image)
     output = renderer.render_image(image, scale)
     print('\n'.join([''.join(row) for row in output]))
 
