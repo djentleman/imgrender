@@ -16,7 +16,7 @@ setuptools.setup(
     install_requires=[
         'ansicolors==1.1.8',
         'numpy==1.17.2',
-        'Pillow==6.1.0',
+        'Pillow==8.3.2',
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
